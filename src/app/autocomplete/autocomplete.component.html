@@ -1,0 +1,33 @@
+<div class="autocomplete">
+  <form>
+    <div class="input-group">
+      <input class="form-control form-control-sm" placeholder="Enter film name" #searchTerm (keyup)="search(searchTerm.value)">
+      <div class="input-group-append">
+        <button class="btn btn-sm btn-outline-secondary" type="button" (click)="resetSearch()">X</button>
+      </div>
+    </div>
+  </form>
+  <div class="search-result-wrapper" *ngIf="films && films.length">
+    <div class="list-group search-result">
+      <div *ngFor="let film of films" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1 film-name" [innerHTML]="sanitizeHtml(film.link_code)"></h5>
+          <small>{{ film.year }}</small>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-4 film-icon" [innerHTML]="sanitizeHtml(film.image_code)"></div>
+            <div class="col-8 film-description">{{ film.description.substring(0, 100) }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="empty-result" *ngIf="films && !films.length">
+    <div class="list-group search-result">
+      <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <h5>Nothing found, try another query</h5>
+      </div>
+    </div>
+  </div>
+</div>

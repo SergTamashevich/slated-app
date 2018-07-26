@@ -1,0 +1,22 @@
+.film-icon {
+  padding-top: 5px;
+}
+.film-icon img {
+  width: 100%;
+  max-width: 100%;
+}
+
+.film-description {
+  font-size: 10px;
+}
+
+.film-name {
+  font-size: 13px;
+}
+
+.search-result-wrapper {
+  height: 400px;
+  overflow-y: scroll;
+}
+
+
